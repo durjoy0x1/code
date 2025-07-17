@@ -56,18 +56,35 @@
                     </li>
                     <?php } ?>
                 </ul>
-                <form class="form-search w-lg-250 ms-xl-4 mb-3 mb-lg-0" action="<?php echo APP.'/'.$this->translate('search');?>" method="post">
-                    <input type="hidden" name="_TOKEN" value="<?php echo $Token;?>">
+                <form class="form-search w-lg-250 ms-xl-4 mb-3 mb-lg-0 d-none d-lg-block" action="<?php echo APP.'/'.$this->translate('search'); ?>" method="post">
+                    <input type="hidden" name="_TOKEN" value="<?php echo $Token; ?>">
                     <input type="hidden" name="_ACTION" value="search">
                     <div class="input-group input-group-inline shadow-none">
                         <span class="input-group-text bg-transparent border-0 text-gray-500 shadow-none">
                             <svg width="18" height="18" stroke="currentColor" stroke-width="1.75" fill="none">
-                                <use xlink:href="<?php echo ASSETS.'/sprite/sprite.svg#search';?>"></use>
+                                <use xlink:href="<?php echo ASSETS.'/sprite/sprite.svg#search'; ?>"></use>
                             </svg>
                         </span>
-                        <input type="text" name="q" class="form-control form-control-flush bg-transparent border-0 ps-0" id="search" placeholder="<?php echo $this->translate('Search');?> .." aria-label="Search" required="true" minlength="3">
+                        <input type="text" name="q" class="form-control form-control-flush bg-transparent border-0 ps-0" id="search" placeholder="<?php echo $this->translate('Search'); ?> .." aria-label="Search" required minlength="3">
                     </div>
                 </form>
                 <?php require PATH . '/theme/view/common/header.user.php'; ?>
             </div>
+            <!-- Mobile search -->
+            <div class="d-lg-none mt-2 w-100 px-3">
+                <form class="form-search" action="<?php echo APP.'/'.$this->translate('search'); ?>" method="post">
+                    <input type="hidden" name="_TOKEN" value="<?php echo $Token; ?>">
+                    <input type="hidden" name="_ACTION" value="search">
+                    <div class="input-group input-group-sm">
+                        <input type="text" name="q" class="form-control" placeholder="<?php echo $this->translate('Search'); ?> .." required minlength="3">
+                        <button class="btn btn-primary" type="submit">
+                            <svg width="16" height="16" fill="currentColor">
+                                <use xlink:href="<?php echo ASSETS.'/sprite/sprite.svg#search'; ?>"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </nav>
+    </div>
+</div>
